@@ -2,8 +2,7 @@ package com.betrybe.museumfinder.dto;
 
 import com.betrybe.museumfinder.model.Coordinate;
 
-public record MuseumDto(
-        Long id,
+public record MuseumCreationDto(
         String name,
         String description,
         String address,
