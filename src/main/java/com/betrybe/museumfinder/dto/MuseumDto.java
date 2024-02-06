@@ -12,5 +12,4 @@ public record MuseumDto(
         String url,
         Coordinate coordinate
 ) {
-
 }
