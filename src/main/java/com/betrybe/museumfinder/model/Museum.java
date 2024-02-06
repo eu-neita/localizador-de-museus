@@ -1,5 +1,8 @@
 package com.betrybe.museumfinder.model;
 
+/**
+ * Represents a Museum entity.
+ */
 public class Museum {
     private Long id;
     private String name;
@@ -11,6 +14,7 @@ public class Museum {
     private Coordinate coordinate;
     private Long legacyId;
 
+    // Getters and Setters
     public Long getId() {
         return id;
     }
