@@ -1,7 +1,7 @@
 package com.betrybe.museumfinder.model;
 
 /**
- * Represents a Museum entity.
+ * Represents a DTO for Museum entity.
  */
 public class Museum {
     private Long id;
