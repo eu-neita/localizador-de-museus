@@ -24,13 +24,15 @@ public class MuseumService implements MuseumServiceInterface {
 
   @Override
   public Museum getClosestMuseum(Coordinate coordinate, Double maxDistance) {
-    boolean isValid = CoordinateUtil.isCoordinateValid(coordinate);
-    if (isValid) {
-      throw new MuseumNotFoundException("coordinate is invalid");
+    if (CoordinateUtil.isCoordinateValid(coordinate)) {
+      throw new IllegalArgumentException("Invalid coordinates");
+    }
+    if (maxDistance <= 0) {
+      throw new IllegalArgumentException("Invalid max distance");
     }
     Optional<Museum> closestMuseum = museumDatabase.getClosestMuseum(coordinate, maxDistance);
-    if (closestMuseum.isEmpty()) {
-      throw new MuseumNotFoundException("not found museum");
+    if (closestMuseum == null) {
+      throw new MuseumNotFoundException();
     }
     return closestMuseum.get();
   }
