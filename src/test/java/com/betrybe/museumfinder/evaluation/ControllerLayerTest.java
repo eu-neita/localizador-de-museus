@@ -66,7 +66,7 @@ public class ControllerLayerTest {
   @DisplayName("06 - Rota GET /museums/closest implementada")
   void testGetClosestMuseum() throws Exception {
     Museum museum = createMockMuseum(11L);
-    Mockito.when(museumsServiceInterface.getClosestMuseum(any(), any())).thenReturn(Optional.of(museum));
+    Mockito.when(museumsServiceInterface.getClosestMuseum(any(), any())).thenReturn(museum);
 
     mockMvc.perform(
           get("/museums/closest?lat=12.34&lng=23.45&max_dist_km=10")

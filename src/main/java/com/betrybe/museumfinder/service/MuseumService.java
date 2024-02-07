@@ -23,22 +23,16 @@ public class MuseumService implements MuseumServiceInterface {
   }
 
   @Override
-  public Optional<Museum> getClosestMuseum(Coordinate coordinate, Double maxDistance) {
-    if (!CoordinateUtil.isCoordinateValid(coordinate)) {
-      throw new InvalidCoordinateException("Invalid coordinates");
+  public Museum getClosestMuseum(Coordinate coordinate, Double maxDistance) {
+    boolean isValid = CoordinateUtil.isCoordinateValid(coordinate);
+    if (isValid) {
+      throw new MuseumNotFoundException("coordinate is invalid");
     }
-
     Optional<Museum> closestMuseum = museumDatabase.getClosestMuseum(coordinate, maxDistance);
-
     if (closestMuseum.isEmpty()) {
-      throw new MuseumNotFoundException("No museum found within the specified distance");
+      throw new MuseumNotFoundException("not found museum");
     }
-
-    return closestMuseum;
-  }
-
-  public Optional<Optional<Museum>> getClosestMuseum(Coordinate coordinate, double maxDistanceKm) {
-    return Optional.empty();
+    return closestMuseum.get();
   }
 
   @Override
