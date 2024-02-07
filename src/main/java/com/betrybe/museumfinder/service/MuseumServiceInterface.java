@@ -8,7 +8,8 @@ import java.util.Optional;
  * Interface for Museum service class.
  */
 public interface MuseumServiceInterface {
-  //Optional<Museum> getClosestMuseum(Coordinate coordinate, Double maxDistance);
+
+  Optional<Museum> getClosestMuseum(Coordinate coordinate, Double maxDistance);
 
   Optional<Optional<Museum>> getClosestMuseum(Coordinate coordinate, double maxDistanceKm);
 
