@@ -37,7 +37,6 @@ public class MuseumService implements MuseumServiceInterface {
     return closestMuseum;
   }
 
-  @Override
   public Optional<Optional<Museum>> getClosestMuseum(Coordinate coordinate, double maxDistanceKm) {
     return Optional.empty();
   }
