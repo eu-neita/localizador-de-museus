@@ -22,7 +22,6 @@ public class MuseumService implements MuseumServiceInterface {
     this.museumDatabase = museumDatabase;
   }
 
-
   @Override
   public Optional<Museum> getClosestMuseum(Coordinate coordinate, Double maxDistance) {
     if (!CoordinateUtil.isCoordinateValid(coordinate)) {
@@ -53,7 +52,6 @@ public class MuseumService implements MuseumServiceInterface {
 
   @Override
   public Museum getMuseum(Long id) {
-    // Implementação para obter um museu pelo ID
     return null;
   }
 }

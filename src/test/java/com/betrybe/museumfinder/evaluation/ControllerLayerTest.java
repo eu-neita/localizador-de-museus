@@ -24,6 +24,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Optional;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @DisplayName("Req 05-06")
@@ -64,7 +66,7 @@ public class ControllerLayerTest {
   @DisplayName("06 - Rota GET /museums/closest implementada")
   void testGetClosestMuseum() throws Exception {
     Museum museum = createMockMuseum(11L);
-    Mockito.when(museumsServiceInterface.getClosestMuseum(any(), any())).thenReturn(museum);
+    Mockito.when(museumsServiceInterface.getClosestMuseum(any(), any())).thenReturn(Optional.of(museum));
 
     mockMvc.perform(
           get("/museums/closest?lat=12.34&lng=23.45&max_dist_km=10")
