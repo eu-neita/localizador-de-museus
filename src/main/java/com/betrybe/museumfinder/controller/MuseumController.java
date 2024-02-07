@@ -24,10 +24,14 @@ public class MuseumController {
     this.museumService = museumService;
   }
 
+  /**
+   * Museum post createMuseum.
+   */
   @PostMapping
-  public ResponseEntity<Museum> createMuseum(@RequestBody Museum museum) {
+  public ResponseEntity<Museum> createMuseum(@RequestBody MuseumCreationDto museumDto) {
+    // creating museum dto to Museum
+    Museum museum = new Museum();
     Museum createdMuseum = museumService.createMuseum(museum);
     return ResponseEntity.status(HttpStatus.CREATED).body(createdMuseum);
   }
 }
-
