@@ -23,6 +23,11 @@ public class MuseumService implements MuseumServiceInterface {
   }
 
   @Override
+  public Optional<Museum> getClosestMuseum(Coordinate coordinate, Double maxDistance) {
+    return Optional.empty();
+  }
+
+  @Override
   public Optional<Optional<Museum>> getClosestMuseum(Coordinate coordinate, double maxDistanceKm) {
     if (!CoordinateUtil.isCoordinateValid(coordinate)) {
       throw new InvalidCoordinateException("Invalid coordinates");
@@ -34,10 +39,6 @@ public class MuseumService implements MuseumServiceInterface {
     return Optional.of(closestMuseum);
   }
 
-  @Override
-  public Optional<Museum> getClosestMuseum(Coordinate coordinate, Double maxDistance) {
-    return Optional.empty();
-  }
 
   @Override
   public Museum createMuseum(Museum museum) {
